@@ -1,0 +1,8 @@
+*.pyc
+.DS_Store
+*.swp
+*.swo
+
+lab.py
+lab2.py
+.idea/*
