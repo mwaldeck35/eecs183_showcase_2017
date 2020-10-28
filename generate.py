@@ -3,8 +3,9 @@ import sys
 sys.dont_write_bytecode = True # Suppress .pyc files
 
 import random
-import plotly.plotly as py
+import chart_studio.plotly as py
 import numpy as np
+import midi
 from pysynth import pysynth
 from data.dataLoader import *
 from models.musicInfo import *
@@ -461,7 +462,6 @@ def makeSongPySynth(song, instruments, volume, name, bpm):
         else:
             pysynth.mix_files(prevComboPath, tempPath, songPath)
 
-import midi
 def makeSongMidi(song, instruments, volume, name, bpm):
     '''
     song is a list of lists of pysynth tuples
@@ -471,7 +471,7 @@ def makeSongMidi(song, instruments, volume, name, bpm):
     name is the song's name
     '''
     # 220 is completely arbitrary. anything >= 4 should probably work
-    resolution = 220
+    resolution = 1000
     pattern = midi.Pattern(resolution=resolution)
 
     tempoEvent = midi.SetTempoEvent(tick=0)
@@ -653,7 +653,7 @@ def main():
                 if choice == 1:
                     songName = raw_input('What would you like to name your song? ')
                     song = reachMusicGenerator(musicModels, songName)
-                    createChord(song)
+                    #createChord(song)
                     choice = getUserInput(PROMPTS[6], ['y', 'n'])
                     if choice == 'y':
                         playSong(songName)
@@ -674,7 +674,7 @@ def main():
                     songName = raw_input('What would you like to name your song? ')
                     song = reachMusicGeneratorOptions(musicModels, songName, key,
                                                progNum, bpm)
-                    createChord(song)
+                    #createChord(song)
                     choice = getUserInput(PROMPTS[6], ['y', 'n'])
                     if choice == 'y':
                         playSong(songName)
@@ -784,8 +784,7 @@ def functionTests():
 
 #####---DATA VISUALIZATION OF REACH---#########################################
 
-
-
+"""
 
 def doCircleRibbonGraph(labels, matrix):
     ideo_colors=['rgba(122, 17, 17, 0.75)',
@@ -1212,11 +1211,10 @@ def createChord(song) :
     , dtype=int)
     
     doCircleRibbonGraph(labels, matrix)
-
-
-
+"""
 
 
 if __name__ == '__main__':
     main()
     pass
+
