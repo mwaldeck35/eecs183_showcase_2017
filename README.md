@@ -1,4 +1,4 @@
-#Contributors 
+# Contributors 
 Annmarie Zheng
 Larry Zhao
 Matthew Waldeck
