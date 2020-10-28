@@ -1,7 +1,10 @@
 # Contributors 
 Annmarie Zheng
+
 Larry Zhao
+
 Matthew Waldeck
+
 Taran Deshpande
 
 # Running the Reach
